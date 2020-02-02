@@ -6,17 +6,11 @@ class Main {
     private final static  Checkout checkout = new CheckoutImpl();
 
     public static void main(String[] args) {
-        Scanner scanner = null;
-        try {
-            scanner = new Scanner(System.in);
+        try (Scanner scanner = new Scanner(System.in)) {
             System.out.println(getTotalShouldReturnCorrectPriceWhenItemsAreScanned(scanner.nextLine()));
         } catch (Exception e) {
             System.out.println("Something is wrong!");
             throw e;
-        } finally {
-            if (scanner != null) {
-                scanner.close();
-            }
         }
     }
 
